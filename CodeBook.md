@@ -1,10 +1,8 @@
-## This data comes from  the  Smartlab - Non Linear Complex Systems Laboratory from the data set Human Activity Recognition 
-## Using Smartphones Dataset Version 1.0.  Experiments were designed to measure activity in 6 activities using the Samsung
-## Galaxy S II. 
+## This data comes from  the  Smartlab - Non Linear Complex Systems Laboratory from the data set Human Activity Recognition Using Smartphones Dataset Version 1.0.  Experiments were designed to measure activity in 6 activities using the Samsung Galaxy S II. 
 
 ### Transformations to the data
 
-1. read files into R 
+#### Read files into R 
 
 * X_test = read.table("./clean_data/UCI HAR Dataset/test/X_test.txt", sep ="")
 * sub_test = read.table("./clean_data/UCI HAR Dataset/test/subject_test.txt", sep="")
@@ -29,8 +27,7 @@ Verify the dimensions of the individual dataframes are correct.
 > dim(sub_train)
 [1] 7352    1
 
-2. Combine the files into one dataframe
-
+#### Combine the files into one dataframe
 
 * combine_X is the combined file of sub_test.txt, y_test.txt, and  X_test.txt 
 * combine_X_train is the combined file of sub_train.txt, y_train.txt, and X_train.txt 
@@ -48,14 +45,14 @@ Verify the dimensions of the individual dataframes are correct.
 
 
 
-3.  Rename the column names of the combine file
+#### Rename the column names of the combine file
 
 > colnames(combine)[1] = "subject"
 > colnames(combine)[2] = "training"
 > header=as.character(headers[,2])
 > colnames(combine)[3:563] = header
 
-4.   Create a new dataframe with subject, training and only those headers that included mean or std in the title
+#### Create a new dataframe with subject, training and only those headers that included mean or std in the title
 
 >std = combine[,grepl("std" , names(combine))]
 >avg = combine[,grepl("mean" , names(combine))]
@@ -67,47 +64,47 @@ Verify the dimensions of the individual dataframes are correct.
 ### Description of the variables
 
 subject
-        subject who performed the training between age of 19-48.
-        1 .subject #1
-        2 .subject #2
-        3 .subject #3
-        4 .subject #4
-        5 .subject #5
-        6 .subject #6
-        7 .subject #7
-        8 .subject #8
-        9 .subject #9
-        10 .subject #10
-        11 .subject #11
-        12 .subject #12
-        13 .subject #13
-        14 .subject #14
-        15 .subject #15
-        16 .subject #16
-        17 .subject #17
-        18 .subject #18
-        19 .subject #19
-        20 .subject #20
-        21 .subject #21
-        22 .subject #22
-        23 .subject #23
-        24 .subject #24
-        25 .subject #25
-        26 .subject #26
-        27 .subject #27
-        28 .subject #28
-        29 .subject #29
-        30 .subject #30
+subject who performed the training between age of 19-48.
+1 .subject #1
+2 .subject #2
+3 .subject #3
+4 .subject #4
+5 .subject #5
+6 .subject #6
+7 .subject #7
+8 .subject #8
+9 .subject #9
+10 .subject #10
+11 .subject #11
+12 .subject #12
+13 .subject #13
+14 .subject #14
+15 .subject #15
+16 .subject #16
+17 .subject #17
+18 .subject #18
+19 .subject #19
+20 .subject #20
+21 .subject #21
+22 .subject #22
+23 .subject #23
+24 .subject #24
+25 .subject #25
+26 .subject #26
+27 .subject #27
+28 .subject #28
+29 .subject #29
+30 .subject #30
         
         
 training 
-        type of training 
-        1 .WALKING
-        2 .WALKING_UPSTAIRS
-        3 .WALKING_DOWNSTAIRS
-        4 .SITTING
-        5 .STANDING
-        6 .LAYING
+type of training 
+1 .WALKING
+2 .WALKING_UPSTAIRS
+3 .WALKING_DOWNSTAIRS
+4 .SITTING
+5 .STANDING
+6 .LAYING
         
         
         
