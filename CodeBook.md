@@ -63,8 +63,11 @@ Verify the dimensions of the individual dataframes are correct.
 
 ### Description of the variables
 
-subject
-subject who performed the training between age of 19-48.
+
+#####subject
+
+######subject who performed the training between age of 19-48.
+
 1 .subject #1
 2 .subject #2
 3 .subject #3
@@ -97,8 +100,10 @@ subject who performed the training between age of 19-48.
 30 .subject #30
         
         
-training 
-type of training 
+#####training 
+
+######type of training 
+
 1 .WALKING
 2 .WALKING_UPSTAIRS
 3 .WALKING_DOWNSTAIRS
