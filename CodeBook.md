@@ -72,9 +72,30 @@ Verify the dimensions of the individual dataframes are correct.
 > tidy_combine = cbind(tidy_combine,Body,Body2,Gravity,Gravity2)
 
 
+#### Use the descriptive names to names the activity in the dataset
+
+tidy_combine2 = merge( activity, tidy_combine, by.y = "training" , by.x = "num", all=TRUE)
+
+
 
 ### Description of the variables
 
+#####training 
+
+######type of training 
+
+1 WALKING
+
+2 WALKING_UPSTAIRS
+
+3 WALKING_DOWNSTAIRS
+
+4 SITTING
+
+5 STANDING
+
+6 LAYING
+      
 
 #####subject
 
@@ -141,22 +162,7 @@ Verify the dimensions of the individual dataframes are correct.
 30 .subject #30
         
         
-#####training 
 
-######type of training 
-
-1 .WALKING
-
-2 .WALKING_UPSTAIRS
-
-3 .WALKING_DOWNSTAIRS
-
-4 .SITTING
-
-5 .STANDING
-
-6 .LAYING
-      
       
 #####
 
