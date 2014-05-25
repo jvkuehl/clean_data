@@ -6,7 +6,6 @@
 2. Combined all of the test data into one dataframe using cbind, combined all of the train data into one dataframe using cbind
  and combined the test and train data sets into one dataframe using rbind. 
 3. Renamed the columns names with the original features description, 
-6. Create a new dataframe with the subset of columns that match std and mean. 
-
-7. Choose the variables for the tidy data set -  Here I choose this variables because
+4. Create a new dataframe with the subset of columns that match std and mean. 
+5. Choose the variables for the tidy data set -  Here I choose to include these variables,  tBodyAcc-XYZ and tGravityAcc-XYZ because they are the raw signals captured from the experiments and all the other measurements reflected some kind of processing that I wasn't sure could be replicated with the information given.
 

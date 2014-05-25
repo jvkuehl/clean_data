@@ -33,3 +33,17 @@ Gravity2 = new_combine[,grepl("tGravityAccstd" , names(new_combine))]
 tidy_combine = cbind(tidy_combine,Body,Body2,Gravity,Gravity2)
 
 tidy_combine2 = merge( activity, tidy_combine, by.y = "training" , by.x = "num", all=TRUE)
+
+
+df1 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccmeanX) )
+df2 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccmeanY) )
+df3 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccmeanZ) )
+df4 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccstdX) )
+df5 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccstdY) )
+df6 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tBodyAccstdZ) )
+df7 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccmeanX) )
+df8 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccmeanY) )
+df9 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccmeanZ) )
+df10 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccmstdX) )
+df11 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccstdY) )
+df12 = ddply(tidy_combine2, .(training, subject), summarize, mean=mean(tGravityAccstdZ) )
