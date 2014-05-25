@@ -3,6 +3,7 @@ a code book that , the data, and any  or work that you performed to clean up the
 ### Transformations to the data
 
 1. read files into R 
+
 * X_test = read.table("./clean_data/UCI HAR Dataset/test/X_test.txt", sep ="")
 * sub_test = read.table("./clean_data/UCI HAR Dataset/test/subject_test.txt", sep="")
 * y_test = read.delim("./clean_data/UCI HAR Dataset/test/y_test.txt")
@@ -11,7 +12,7 @@ a code book that , the data, and any  or work that you performed to clean up the
 * y_train = read.table("./clean_data/UCI HAR Dataset/train/y_train.txt", sep ="")
 * headers = read.table("./clean_data/UCI HAR Dataset/features.txt", sep="")
 
-2. Verify the dimensions of the individual dataframes are correct.
+Verify the dimensions of the individual dataframes are correct.
 > dim(X_test)
 [1] 2947  561
 >dim(y_test)
@@ -26,7 +27,7 @@ a code book that , the data, and any  or work that you performed to clean up the
 > dim(sub_train)
 [1] 7352    1
 
-3. Combine the files into one dataframe
+2. Combine the files into one dataframe
 * combine_X is the combined file of sub_test.txt, y_test.txt, and  X_test.txt 
 * combine_X_train is the combined file of sub_train.txt, y_train.txt, and X_train.txt 
 * combine is the combined the test and training sets into one dataframe 
@@ -43,13 +44,20 @@ a code book that , the data, and any  or work that you performed to clean up the
 
 
 
-4.  rename the column names of the combine file
+3.  Rename the column names of the combine file
 
 > colnames(combine)[1] = "subject"
 > colnames(combine)[2] = "training"
 
 > header=as.character(headers[,2])
 > colnames(combine)[3:563] = header
+
+4.   Create a new dataframe with subject, training and only those headers that included mean or std in the title
+>std = combine[,grepl("std" , names(combine))]
+>avg = combine[,grepl("mean" , names(combine))]
+>new_combine = combine[,1:2]
+>new_combine = cbind(new_combine, avg, std)
+
 
 
 ### Description of the variables
