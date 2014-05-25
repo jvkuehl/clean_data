@@ -1,4 +1,6 @@
-a code book that , the data, and any  or work that you performed to clean up the data 
+## This data comes from  the  Smartlab - Non Linear Complex Systems Laboratory from the data set Human Activity Recognition 
+## Using Smartphones Dataset Version 1.0.  Experiments were designed to measure activity in 6 activities using the Samsung
+## Galaxy S II. 
 
 ### Transformations to the data
 
@@ -28,6 +30,8 @@ Verify the dimensions of the individual dataframes are correct.
 [1] 7352    1
 
 2. Combine the files into one dataframe
+
+
 * combine_X is the combined file of sub_test.txt, y_test.txt, and  X_test.txt 
 * combine_X_train is the combined file of sub_train.txt, y_train.txt, and X_train.txt 
 * combine is the combined the test and training sets into one dataframe 
@@ -48,11 +52,11 @@ Verify the dimensions of the individual dataframes are correct.
 
 > colnames(combine)[1] = "subject"
 > colnames(combine)[2] = "training"
-
 > header=as.character(headers[,2])
 > colnames(combine)[3:563] = header
 
 4.   Create a new dataframe with subject, training and only those headers that included mean or std in the title
+
 >std = combine[,grepl("std" , names(combine))]
 >avg = combine[,grepl("mean" , names(combine))]
 >new_combine = combine[,1:2]
