@@ -52,12 +52,24 @@ Verify the dimensions of the individual dataframes are correct.
 > header=as.character(headers[,2])
 > colnames(combine)[3:563] = header
 
-#### Create a new dataframe with subject, training and only those headers that included mean or std in the title
+#### Create a new dataframe with subject, training and only those headers that included mean or std in the title, remove punctuation in the colnames to conform to naming conventions.
 
 >std = combine[,grepl("std" , names(combine))]
 >avg = combine[,grepl("mean" , names(combine))]
 >new_combine = combine[,1:2]
 >new_combine = cbind(new_combine, avg, std)
+> colnames(new_combine) = gsub("[[:punct:]]", "", colnames(new_combine))
+
+
+
+#### Choose what variable to include in the tidy data set
+
+> tidy_combine = new_combine[,1:2]
+> Body = new_combine[,grepl("tBodyAccmean" , names(new_combine))]
+> Body2 = new_combine[,grepl("tBodyAccstd" , names(new_combine))]
+> Gravity = new_combine[,grepl("tGravityAccmean" , names(new_combine))]
+> Gravity2 = new_combine[,grepl("tGravityAccstd" , names(new_combine))]
+> tidy_combine = cbind(tidy_combine,Body,Body2,Gravity,Gravity2)
 
 
 
@@ -144,6 +156,9 @@ Verify the dimensions of the individual dataframes are correct.
 5 .STANDING
 
 6 .LAYING
-        
-        
+      
+      
+#####
+
+######
         
